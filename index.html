@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/jqpuzzle.css" />
+        <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+        <script type="text/javascript" src="js/jquery.jqpuzzle.js"></script>
+        <script type="text/javascript">
+
+            var imagenes = new Array(
+                'imagenes/Luna2.jpg',
+                'imagenes/Chronos.jpg',
+                'imagenes/Luna.jpg'
+            );
+
+            var azar = Math.floor((Math.random() * imagenes.length) + 0);
+            var imagen = imagenes[azar];
+
+            var settings = {
+                shuffle: true,
+                control: {
+                    shufflePieces: true,
+                    confirmShuffle: false,
+                    toggleOriginal: true,
+                    toggleNumbers: true,
+                    counter: true,
+                    timer: true,
+                    pauseTimer: false
+                }
+            };
+
+            var myTexts = {
+                shuffleLabel: 'Mezclar fichas',
+                toggleOriginalLabel: 'Ver imagen original',
+                toggleNumbersLabel: 'Mostrar numeros',
+                confirmShuffleMessage: 'Desea mezclar la imagen?',
+                movesLabel: 'Movimientos',
+                secondsLabel: 'Tiempo'
+            };
+            $(document).ready(function() {
+                $("#rompecabezas").attr('src', imagen);
+                $("#rompecabezas").jqPuzzle(settings, myTexts);
+            });
+        </script>
+    </head>
+    <body>
+        <img id="rompecabezas" src="" alt="" class="jqPuzzle" />
+    </body>
+</html>
